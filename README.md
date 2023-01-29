@@ -1,28 +1,19 @@
-### Configuration
+[![Build Status](https://travis-ci.org/wffzy/subdomainex.svg?branch=main)](https://travis-ci.org/wffzy/subdomainex)
 
-First create a .env file on the root directory of the project the file should look like this
+# Subdomainex
 
-'''
-DATABASE = your-mongo-db-uri
+Is simply cloudflare DNS api.
 
-GITHUB_CLIENT_ID = your-github-app-client-id
+## Install Dependency 
 
-GITHUB_CLIENT_SECRET = your-github-app-client-secret
+    npm i install
 
-GITHUB_CALLBACK_URL = your-github-app-callback-url
+## Simple usage
 
-SESSION_SECRET = your-app-session-secret-it-can-be-any-string-of-your-choice
+try Demo `https://botwa.in`
 
-'''
+## run code:
 
-replace these keys with the appropriate data.
-
-### To run the app
-
-run
-`npm install`
-
-and then 
-
-run `npm run dev`
-
+   nodemon server.js
+   
+now open `http://localhost:8081`

@@ -89,7 +89,7 @@
 
   <!-- BEGIN: Custom CSS-->
 
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  
 
   <!-- END: Custom CSS-->
 
@@ -98,9 +98,6 @@
     opacity: 0.6;
     cursor: not-allowed;
     pointer-events: none;
-}
-	.errx {
-  height: 15px;
 }
 
 </style>
@@ -536,10 +533,11 @@
                   <option value="CNAME">CNAME</option>
                 </select>
               </div>
+              <input type="text" name="username" class="d-none" value="<%= user.username %>">
 
 
 
-              <div class="col-12 hidden">
+              <div class="col-12 hidden mb-4">
                 <div class="mb-1 row">
                   <div class="col-sm-3">
                     <label class="col-form-label" for="first-name">Value</label>
@@ -551,18 +549,8 @@
               </div>
             </div>
             <span id="errorMsg2" class="text-sm text-danger"></span>
-           <div id="dummyParent" class="ml-5 mt-2 mb-2 mr-5">
-            <div class="bg-red-300 rounded-full hidden" id="subdoNotAvailableDummy">
-              <div class="justify-center items-center flex text-center p-2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="text-error h-5 w-5 mr-3" fill="none">
-                  <path fill="currentColor" d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/>
-                </svg>
-
-                  <span class="block text-sm" id="errorDummyText">Subdomain not available! Try another one.</span>
-              </div>
-            </div>
-          </div>
-            <button id="checkDomain"  class="btn disabled btn-primary">Check Availability</button>
+           
+            <button id="checkDomain"  class="btn mt-3 disabled btn-primary">Check Availability</button>
             <button id="btnsubmit" class="btn btn-primary hidden">Submit</button>
           
 
@@ -659,8 +647,8 @@ class="float-md-end d-none d-md-block">Hand-crafted & Made with <i data-feather=
 <!-- END: Page JS-->
 
 
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.js?r=11'></script><script  src="./script.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin.js?r=11'></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
 <script>
 
 
@@ -671,19 +659,7 @@ $(window).on('load', function () {
       var  spinner = `<div class="spinner-border spinner-border-sm" role="status"></div>`
       let check = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="text-success errx h-5 w-5 mr-3" fill="none">
         <path fill="currentColor" d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"/>
-      </svg>`
-      let dummy = (id, id2, text) => {
-        return `<div class="bg-red-300 rounded-full mt-2" id="${id}">
-          <div class="justify-center items-center flex text-center p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="text-danger h-5 errx w-5 mr-3" fill="none">
-              <path fill="currentColor" d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z"/>
-            </svg>
-
-              <span class="block text-sm" id="${id2}">${text}</span>
-          </div>
-        </div>`
-      }
-
+      </svg>`      
       var enableBtn = function () {
         cap = true;
       }
@@ -697,31 +673,33 @@ $(window).on('load', function () {
         var serialized = myform.serialize();
         disabled.attr('disable','disable');
         $.post($(location).attr('protocol')+"//"+$(location).attr('host')+"/api/add", serialized, function(data) {
-          console.log("Details", data);
           $("#type").removeAttr('readonly');
           if(!data.success) {
-            $("#dummyParent").empty()
-            for (var i = 0; i < data.errors.length; i++) {
-              let err = data.errors[i];
-              if(err.error_chain) {
-                for (var j = 0; j < err.error_chain.length; j++) {
-                  $("#dummyParent").append(dummy(err, err + "Text", `${err.message}! ${err.error_chain[j].message}`))
-                }
-              } else {
-                $("#dummyParent").append(dummy(err, err + "Text", `${err.message}! Try another!`))
-              }
-            }
-
+ Swal.fire({
+  icon: 'error',
+  title: 'Error',
+  text: `${err.message}`
+})                              
             $("#btnsubmit").empty()
             $("#btnsubmit").append("Submit").removeClass("disabled")
-          } else {
-            Swal.fire({
+      
+          Swal.fire({
   icon: 'success',
   title: 'Success',
   text: 'Domain Has Been Added!'
-})            
+})   
+$("#btnsubmit").empty()
+$("#btnsubmit").append("Submit").removeClass("disabled")                     
           }
         })
+        Swal.fire({
+  icon: 'success',
+  title: 'Success',
+  text: 'Domain Has Been Added!'
+})   
+$("#btnsubmit").empty()
+$("#btnsubmit").append("Submit").removeClass("disabled")                     
+
         // alert($("#form").serialize())
         event.preventDefault();
       }
@@ -744,9 +722,14 @@ $(window).on('load', function () {
             $("#form").submit(function(event) {
               formSubmitted();
             })
-          } else {
-            $("#subdoNotAvailableDummy").removeClass("hidden");
             $("#checkDomain").empty().removeClass("disabled").append("Check Availability");
+          } else {
+ Swal.fire({
+  icon: 'error',
+  title: 'Error',
+  text: `Subdomain not available! Try another one.`
+})      
+$("#checkDomain").empty().removeClass("disabled").append("Check Availability");            
           }
         })
       })

@@ -9,15 +9,6 @@ const userSchema = new mongoose.Schema(
     phone: { type: String },
     email: { type: String, lowercase: true },
     profilePhoto: { type: String, default: "" },
-    subdomain: [
-      {
-        type: String,
-        sub: String,
-        content: String,
-        ttl: String,
-        proxies: Boolean
-      },
-    ],
   },
   { timestamps: true }
 );

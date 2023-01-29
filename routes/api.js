@@ -5,7 +5,7 @@ const express = require("express");
 const rateLimit = require("express-rate-limit");
 const passport = require("passport");
 const github = require("./../utils/github");
-const User = require("../model/UserModel");
+const { Subdo } = require("../model/SubdoModel");
 require("dotenv").config();
 
 passport.use(github);
@@ -102,17 +102,8 @@ router.post("/add", addLimit, async (req, res, next) => {
         content: content,
         ttl: 1,
         proxied: false,
-      };
-      User.findOneAndUpdate(
-        { username: username },
-        { $push: { subdomain: dat } },
-        function (err, pon) {
-          if (err) throw err;
-          res.status(200).json({
-            result: dat,
-          });
-        }
-      );
+      };    
+     res.json({ result: dat});
     })
     .catch((x) => {
       res.sendStatus(500);
