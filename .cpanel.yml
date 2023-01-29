@@ -1,0 +1,4 @@
+deployment:
+ tasks:
+ - export DEPLOYPATH=/home/svlsh/wabot.in
+ - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
